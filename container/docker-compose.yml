@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  ssh_server:
+    restart: always
+    build: ./build
+    image: bats
+    container_name: bats_gpu
+    # port 2222 on host, 22 in container.
+    ports:
+      - "2222:22"
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      # cache volume
+      - /mnt/efs/fs1/cache:/workspace/cache
+      # data volume.
+      - /mnt/efs/fs1/data:/workspace/data
+      # project volume.
+      - /mnt/efs/fs1/project/Electrolike:/workspace/project
+      # ssh volume.
+      - /home/${DOCKER_USER}/.ssh:/home/denzel/.ssh
+      # aws volume.
+      - /home/${DOCKER_USER}/.aws:/home/denzel/.aws
+      

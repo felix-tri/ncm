@@ -1,0 +1,22 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
+beep
+matplotlib
+mlflow
+hydra-core
+ipykernel
+wandb
+hydra-joblib-launcher
+torch==2.0.1+cpu
+torchvision==0.15+cpu
+pytorch-lightning
+gluonts
+ujson
+transformers
+#requests
+regex
+sentencepiece
+sacremoses
+jupyter
+ipywidgets
+
+  
